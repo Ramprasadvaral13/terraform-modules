@@ -40,5 +40,17 @@ variable "desired_capacity" {
 
 variable "subnet_ids" {
     type = list(string)
+variable "instance_type" {
+    type = string
+  
+}
+
+variable "image_id" {
+    type = string
+  
+}
+
+variable "key_name" {
+    type = string
   
 }
