@@ -33,3 +33,16 @@ resource "aws_route_table_association" "public-rtba" {
     subnet_id = aws_subnet.test-subnet[each.key].id
   
 }
+
+resource "aws_eip" "test-ip" {
+    domain = true
+  
+}
+
+resource "aws_nat_gateway" "test_nat" {
+    allocation_id = aws_eip.test-ip.id
+    subnet_id = aws_subnet.test-subnet[
+        keys({ for k,s in var.subnet : k=>s if s.public == true })[0]
+        ].id
+  
+}
