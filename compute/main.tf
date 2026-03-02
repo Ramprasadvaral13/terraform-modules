@@ -47,3 +47,18 @@ resource "aws_launch_template" "test-lt" {
     }
   
 }
+
+resource "aws_autoscaling_group" "test-asg" {
+    max_size = var.max_size
+    min_size = var.min_size
+    desired_capacity = var.desired_capacity
+    vpc_zone_identifier = var.subnet_ids
+    health_check_type = "EC2"
+    force_delete = true
+    wait_for_capacity_timeout = 0
+    launch_template {
+      version = "$Latest"
+      id = aws_launch_template.test-lt.id
+    }
+  
+}
