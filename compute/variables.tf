@@ -1,6 +1,7 @@
 variable "instance_profile_name" {
     type = string
     default = "AdminSSMRole"
+}
 variable "volume_size" {
     type = number
   
