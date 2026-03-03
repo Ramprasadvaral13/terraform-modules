@@ -1,3 +1,13 @@
+variable "volume_size" {
+    type = number
+  
+}
+
+variable "vpc_id" {
+    type = string
+  
+}
+
 variable "instance_type" {
     type = string
   
@@ -8,17 +18,7 @@ variable "image_id" {
   
 }
 
-variable "volume_size" {
-    type = number
-  
-}
-
 variable "key_name" {
-    type = string
-  
-}
-
-variable "vpc_id" {
     type = string
   
 }
@@ -40,17 +40,5 @@ variable "desired_capacity" {
 
 variable "subnet_ids" {
     type = list(string)
-variable "instance_type" {
-    type = string
-  
-}
-
-variable "image_id" {
-    type = string
-  
-}
-
-variable "key_name" {
-    type = string
   
 }
